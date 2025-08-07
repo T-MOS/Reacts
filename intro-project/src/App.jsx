@@ -2,12 +2,32 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+const nouns = ["App", "Project", "Nav Bar"];
+
+function getRandomNoun(list) {
+  return Math.floor(Math.random() * list.length);
+}
+
+function Nav() {
+  return (
+    <nav>
+      <h1>My { nouns[getRandomNoun(nouns)] }</h1>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+  );
+}
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+      <div className="nav-container">
+        <Nav />
+      </div>
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
