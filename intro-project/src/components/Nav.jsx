@@ -1,12 +1,21 @@
-export default function Nav() {
-  const noun = getRandomNoun(nouns);
+// const NOUNS = ["App", "Project", "Nav Bar"];
+import { NOUNS } from '../data.js';
+
+
+// function getRandomNoun(list) {
+//   return Math.floor(Math.random() * list.length);
+// }
+
+export default function Nav(props) {
+//   const noun = getRandomNoun(NOUNS);
   return (  
     <nav>
-      <h1>My {nouns[Math.floor(Math.random() * nouns.length)]}</h1>
+      {/* <h1>My {NOUNS[Math.floor(Math.random() * NOUNS.length)]}</h1>
       <ul>
         <li><p></p><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
-      </ul>
+      </ul> */}
+      {/* NOUNS */}
     </nav>
   );
 }

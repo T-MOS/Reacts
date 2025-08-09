@@ -1,7 +1,7 @@
-import componentsImg from './assets/components.png';
-import propsImg from './assets/config.png';
-import jsxImg from './assets/jsx-ui.png';
-import stateImg from './assets/state-mgmt.png';
+// import componentsImg from './assets/components.png';
+// import propsImg from './assets/config.png';
+// import jsxImg from './assets/jsx-ui.png';
+// import stateImg from './assets/state-mgmt.png';
 
 export const CORE_CONCEPTS = [
   {
@@ -29,3 +29,4 @@ export const CORE_CONCEPTS = [
       'React-managed data which, when changed, causes the component to re-render & the UI to update.',
   },
 ];
+export const NOUNS = ["App", "Project", "Nav Bar"];
