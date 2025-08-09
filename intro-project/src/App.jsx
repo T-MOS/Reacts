@@ -2,23 +2,12 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Nav from './components/Nav.jsx';
+
 const nouns = ["App", "Project", "Nav Bar"];
 
 function getRandomNoun(list) {
   return Math.floor(Math.random() * list.length);
-}
-
-function Nav() {
-  const noun = getRandomNoun(nouns);
-  return (  
-    <nav>
-      <h1>My {nouns[Math.floor(Math.random() * nouns.length)]}</h1>
-      <ul>
-        <li><p></p><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-      </ul>
-    </nav>
-  );
 }
 
 function App() {
