@@ -3,11 +3,13 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Nav from './components/Nav.jsx'
-// const NOUNS = ["App", "Project", "Nav Bar"];
-import { NOUNS } from './data.js';
-function App() {
-  const [count, setCount] = useState(0)
+import Button from './components/Button.jsx'
 
+function App() {
+  // const [count, setCount] = useState(0)
+  function handleClick() {
+    console.log('Button clicked!');
+  }
   return (
     <>
       <div className="nav-container">
@@ -23,9 +25,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+        <Button onClick={handleClick}/>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
