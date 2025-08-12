@@ -10,10 +10,11 @@ function App() {
   function handleClick() {
     console.log('Button clicked!');
   }
+  
   return (
     <>
       <div className="nav-container">
-        <Nav />
+        <Nav onClick={handleClick} />
       </div>
       <div>
         <a href="https://vite.dev" target="_blank">
@@ -25,7 +26,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <Button onClick={handleClick}/>
+        <Button onClick={handleClick}><p>Default</p></Button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
