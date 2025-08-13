@@ -7,14 +7,14 @@ import Button from './components/Button.jsx'
 
 function App() {
   // const [count, setCount] = useState(0)
-  function handleClick() {
-    console.log('Button clicked!');
+  function handleClick(source) {
+    console.log(`${source} button clicked!`);
   }
   
   return (
     <>
       <div className="nav-container">
-        <Nav onClick={handleClick} />
+        <Nav onClick={(source) => handleClick(source)} />
       </div>
       <div>
         <a href="https://vite.dev" target="_blank">
@@ -26,7 +26,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <Button onClick={handleClick}><p>Default</p></Button>
+        <Button onClick={() => handleClick("Default")}><p>Default</p></Button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>

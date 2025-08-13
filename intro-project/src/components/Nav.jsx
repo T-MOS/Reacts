@@ -11,8 +11,8 @@ export default function Nav(props) {
     <nav>
       <h1>My { NOUNS[getRandomNoun(NOUNS)] }</h1>
       <menu>
-        <Button onClick={props.onClick}><a href="/">Home</a></Button>
-        <Button onClick={props.onClick}><a href="/about">About</a></Button>
+        <Button id="Home" onClick={props.onClick}><a href="/">Home</a></Button>
+        <Button id="About" onClick={props.onClick}><a href="/about">About</a></Button>
       </menu>
     </nav>
   );
