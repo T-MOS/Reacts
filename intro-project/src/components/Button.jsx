@@ -1,4 +1,4 @@
-export default function Button({ id, children, onClick }) {
+export default function Button({children, onClick }) {
     return (
         <button 
             className="button" 

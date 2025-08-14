@@ -9,15 +9,22 @@
   top: 0;
   left: 0;
   width: 100%;
+  min-height: 15%;
   background-color: #282c34;
   padding: .5rem;
   z-index: 1000;
 }
-/* li.nav-container {
-  width: 50%;
-  display: inline-block;
-  margin: 0 1rem;
+/* nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding: 0 2rem;
 } */
+nav h1 {
+  font-size: 3rem;
+  margin: 0 35%;
+}
 .logo {
   height: 6em;
   padding: 1.5em;

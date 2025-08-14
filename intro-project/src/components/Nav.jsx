@@ -1,18 +1,13 @@
-// const NOUNS = ["App", "Project", "Nav Bar"];
-import { NOUNS } from '../data.js';
 import Button from './Button.jsx';
- 
-function getRandomNoun(list) {
-  return Math.floor(Math.random() * list.length);
-}
+// import './Nav.css'; // Assuming you have a CSS file for styling
 
 export default function Nav(props) {
   return (  
     <nav>
-      <h1>My { NOUNS[getRandomNoun(NOUNS)] }</h1>
+      <h1>Job{ props.wordChoice }</h1>
       <menu>
-        <Button id="Home" onClick={props.onClick}><a href="/">Home</a></Button>
-        <Button id="About" onClick={props.onClick}><a href="/about">About</a></Button>
+        <Button id="Home" onClick={props.onClick}>Home</Button>
+        {/* <Button id="About" onClick={props.onClick}><a href="/about">About</a></Button> */}
       </menu>
     </nav>
   );
