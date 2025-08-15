@@ -7,7 +7,7 @@ import Button from './components/Button.jsx'
 import { titleFinishers } from './data.js'
 
 function App() {
-  const [wordChoice, setWordChoice] = useState(" Report")
+  const [wordChoice, setWordChoice] = useState(" Report");
   const [homeSelected, setHomeSelected] = useState(false);
 
   function handleClick(source) {
