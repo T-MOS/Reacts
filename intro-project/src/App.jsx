@@ -8,6 +8,7 @@ import { titleFinishers } from './data.js'
 
 function App() {
   const [wordChoice, setWordChoice] = useState(" Report")
+  const [homeSelected, setHomeSelected] = useState(false);
 
   function handleClick(source) {
     console.log(`${source} button clicked!`);
@@ -35,9 +36,11 @@ function App() {
             handleClick(source);
             if (source === "Home") {
               handleWordChoice();
+              setHomeSelected(true);
             }
           }}
           wordChoice={wordChoice}
+          homeSelected={homeSelected}
         />
       </div>
       <div>
