@@ -6,9 +6,9 @@ export default function Nav(props) {
   // If homeSelected is true, render the About button; otherwise, render the Home button
   let buttonToRender;
   if (props.homeSelected) {
-    buttonToRender = <Button id="About" onClick={props.onClick}><a href="/">About</a></Button>;
+    buttonToRender = <Button onClick={props.onClick}><a href="/">About</a></Button>;
   } else {
-    buttonToRender = <Button id="Home" onClick={props.onClick}>Home</Button>;
+    buttonToRender = <Button onClick={props.onClick}>Home</Button>;
   }
   
   return (  
