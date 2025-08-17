@@ -1,1 +1,1 @@
-export const titleFinishers = [" Report", " Well Done", ": To Do's", " Complete", " Proposal"];
+export const titleFinishers = [" Report", " Well Done", ": To Do's", " Complete", " Proposal", " Manager", " Tracker", " Planner", " Organizer"];
