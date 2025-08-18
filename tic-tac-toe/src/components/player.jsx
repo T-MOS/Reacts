@@ -13,6 +13,7 @@ export default function Player({ initName, symbol }) {
 
     function handleChange(e) {
         const name = e.target.value;
+        // console.log(e);
         setPlayerName(name);
     }
 
