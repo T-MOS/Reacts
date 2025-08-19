@@ -2,19 +2,57 @@ import { useState } from "react";
 import Log from "./components/Log.jsx";
 import Player from "./components/player.jsx"
 import GameBoard from "./components/GameBoard.jsx";
+import { WIN_STATES } from "./win_states.js";
+
+const initialGameBoard = [
+    [null, null, null],
+    [null, null, null],
+    [null, null, null]
+]
+
+function deriveActivePlayer(movesMade) {
+    let curPlayer = "X";
+
+    if (movesMade.length > 0 && movesMade[0].player === "X") {
+        curPlayer = "O";
+    }
+    return curPlayer;
+}
 
 function App() {
-    const [activePlayer, setActivePlayer] = useState("X");
     const [movesMade, setMovesMade] = useState([]);
 
-    function handleSelectSquare(rowIndex, colIndex) {
-        setActivePlayer((curActivePlayer) => curActivePlayer === "X" ? "O" : "X");
-        setMovesMade((prevMoves) => {
-            let curPlayer = "X";
+    let gameBoard = initialGameBoard;
 
-            if (prevMoves.length > 0 && prevMoves[0].player === "X") {
-                curPlayer = "O";
-            }
+    for (const turn of movesMade) {
+        const { square, player } = turn;
+        const { row, col } = square;
+
+        gameBoard[row][col] = player;
+    }
+
+    let winner = null;
+
+    for (const winState of WIN_STATES) {
+        const [first, second, third] = winState;
+        const firstSymbol = gameBoard[first.row][first.column];
+        const secondSymbol = gameBoard[second.row][second.column];
+        const thirdSymbol = gameBoard[third.row][third.column];
+
+        if (
+            firstSymbol 
+            && firstSymbol === secondSymbol 
+            && firstSymbol === thirdSymbol) {
+            winner = firstSymbol;
+            break;
+        }
+    }
+
+    const activePlayer = deriveActivePlayer(movesMade);
+
+    function handleSelectSquare(rowIndex, colIndex) {
+        setMovesMade((prevMoves) => {
+            const curPlayer = activePlayer;
 
             const updatedMoves = [
                 { square: { row: rowIndex, col: colIndex }, player: curPlayer },
@@ -31,12 +69,14 @@ function App() {
                     <Player initName="Player 1" symbol="X" isActive={activePlayer === "X"} />
                     <Player initName="Player 2" symbol="O" isActive={activePlayer === "O"} />
                 </ol>
+                {winner && <p>Winner: {winner}</p>}
                 <GameBoard
                     onSelectSquare={handleSelectSquare}
-                    turns={movesMade}
+                    board={gameBoard}
                 />
-                <Log moves={movesMade} />
             </div>
+            <Log moves={movesMade} />
+
         </main>
     )
 }
