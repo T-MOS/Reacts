@@ -22,9 +22,9 @@ export default function Player({ initName, symbol, isActive }) {
         btnCaption = "Enter";
     }
 
-
+    // console.log("Player:", playerName, "Symbol:", symbol, "Is Active:", isActive);
     return (
-        <li className={isActive === symbol ? "active" : ""}>
+        <li className={isActive ? "active" : undefined}>
             <span className="player">
                 {editablePlayerName}
                 <span className="player-symbol">{symbol}</span>
