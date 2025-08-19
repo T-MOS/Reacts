@@ -1,11 +1,13 @@
 import { useState } from "react"
-export default function GameBoard({ board, onCellClick }) {
-    const [gameBaord, setGameBoard] = useState();
-    const initialGameBoard = [
+const initialGameBoard = [
         [null, null, null],
         [null, null, null],
         [null, null, null]
     ]
+export default function GameBoard() {
+    const [gameBoard, setGameBoard] = useState(initialGameBoard);
+
+
     function handleSelectSquare(rowIndex, colIndex) {
         setGameBoard((prevGameBoard) => {
             const updatedGameBoard = [...prevGameBoard.map(innerArray => [...innerArray])];
@@ -15,15 +17,19 @@ export default function GameBoard({ board, onCellClick }) {
     }
 
 
-    return <ol id="game-board">
-        {initialGameBoard.map((row, rowIndex) => <li key={rowIndex}>
-            <ol>
-                {row.map((playerSymbol, colIndex) => (
-                    <li key={colIndex}>
-                        <button onClick={handleSelectSquare}>{playerSymbol}</button>
-                    </li>
-                ))}
-            </ol>
-        </li>)}
-    </ol>
+    return (
+        <ol id="game-board">
+            {gameBoard.map((row, rowIndex) => (
+                <li key={rowIndex}>
+                    <ol>
+                        {row.map((playerSymbol, colIndex) => (
+                            <li key={colIndex}>
+                                <button onClick={() => handleSelectSquare(rowIndex, colIndex)}>{playerSymbol}</button>
+                            </li>
+                        ))}
+                    </ol>
+                </li>
+            ))}
+        </ol>
+    )
 }
