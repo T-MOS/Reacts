@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Log from "./components/Log.jsx";
 import Player from "./components/player.jsx"
+import GameOver from "./components/GameOver.jsx";
 import GameBoard from "./components/GameBoard.jsx";
 import { WIN_STATES } from "./win_states.js";
 
@@ -31,7 +32,7 @@ function App() {
         gameBoard[row][col] = player;
     }
 
-    let winner = null;
+    let winner;
 
     for (const winState of WIN_STATES) {
         const [first, second, third] = winState;
@@ -48,6 +49,8 @@ function App() {
         }
     }
 
+    const isDraw = movesMade.length === 9 && !winner;
+
     const activePlayer = deriveActivePlayer(movesMade);
 
     function handleSelectSquare(rowIndex, colIndex) {
@@ -58,7 +61,7 @@ function App() {
                 { square: { row: rowIndex, col: colIndex }, player: curPlayer },
                 ...prevMoves,
             ];
-
+            console.log(updatedMoves.length)
             return updatedMoves;
         })
     }
@@ -69,7 +72,7 @@ function App() {
                     <Player initName="Player 1" symbol="X" isActive={activePlayer === "X"} />
                     <Player initName="Player 2" symbol="O" isActive={activePlayer === "O"} />
                 </ol>
-                {winner && <p>Winner: {winner}</p>}
+                {(winner || isDraw) && <GameOver winner={winner} />}
                 <GameBoard
                     onSelectSquare={handleSelectSquare}
                     board={gameBoard}
