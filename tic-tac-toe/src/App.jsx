@@ -5,6 +5,12 @@ import GameOver from "./components/GameOver.jsx";
 import GameBoard from "./components/GameBoard.jsx";
 import { WIN_STATES } from "./win_states.js";
 
+const PLAYERS = {
+    X: "Player 1",
+    O: "Player 2",
+
+}
+
 const INITIAL_GAME_BOARD = [
     [null, null, null],
     [null, null, null],
@@ -98,13 +104,13 @@ function App() {
             <div id="game-container">
                 <ol id="players" className="highlight-player">
                     <Player
-                        initName="Player 1"
+                        initName={PLAYERS.O}
                         symbol="X"
                         isActive={activePlayer === "X"}
                         onNameChange={handleNameChange}
                     />
                     <Player
-                        initName="Player 2"
+                        initName={PLAYERS.X}
                         symbol="O"
                         isActive={activePlayer === "O"}
                         onNameChange={handleNameChange}
