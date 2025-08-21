@@ -5,7 +5,7 @@ export default function Header() {
 
     return (
         <div id="header">
-            <img src={investmentLogo} />
+            <img src={investmentLogo} alt='Logo showing money bag'/>
             <h1> Investment Calculator </h1>
         </div >
     );
