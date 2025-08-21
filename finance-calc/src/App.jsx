@@ -27,7 +27,7 @@ function App() {
                 handleChange={handleChange}
                 userInput={userInput}
             />
-            <Results />
+            <Results inputs={userInput}/>
         </>
     )
 }

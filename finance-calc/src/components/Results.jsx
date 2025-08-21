@@ -1,5 +1,5 @@
 
-export default function Results({ fieldValues }) {
+export default function Results({ inputs }) {
 
 return (
     <>
