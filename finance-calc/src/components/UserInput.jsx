@@ -1,22 +1,64 @@
 import { useState } from "react";
 
-export default function UserInput({ label, onValueChange, key }) {
-    const [text, setText] = useState();
+export default function UserInput() {
+    const [userInput, setUserInput] = useState({
+        initialInvestment: 0,
+        annualInvestment: 0,
+        expectedReturn: 0,
+        duration: 0,
+    })
 
-    function handleChange(e) {
-        const fieldText = e.target.value;
-        onValueChange(label, fieldText)
-        setText(fieldText);
+    function handleChange(identifier, newValue) {
+        setUserInput(prevUserInput => {
+            return {
+                ...prevUserInput,
+                [identifier]: newValue,
+            }
+        });
     }
 
-    const inputField = <input type="number" value={text} onChange={handleChange}></input>
-
     return (
-        <div id="user-input">
-            <span>
-                <label>{label}</label>
-                <p>{inputField}</p>
-            </span>
-        </div>
+        <section id="user-input">
+            <div className="input-group">
+                <p>
+                    <label>"Initial Investment"</label>
+                    <input
+                        type="number"
+                        required
+                        value={userInput}
+                        onChange={() => handleChange("initialInvestment", e.target.value)}>
+                    </input>
+                </p>
+                <p>
+                    <label>"Annual Investment"</label>
+                    <input
+                        type="number"
+                        required
+                        value={userInput}
+                        onChange={() => handleChange("annualInvestment", e.target.value)}>
+                    </input>
+                </p>
+            </div>
+            <div className="input-group">
+                <p>
+                    <label>"Expected Return"</label>
+                    <input
+                        type="number"
+                        required
+                        value={userInput}
+                        onChange={() => handleChange("expectedReturn", e.target.value)}>
+                    </input>
+                </p>
+                <p>
+                    <label>, "Duration"</label>
+                    <input
+                        type="number"
+                        required
+                        value={userInput}
+                        onChange={() => handleChange("duration", e.target.value)}>
+                    </input>
+                </p>
+            </div>
+        </section>
     );
 }
