@@ -8,14 +8,14 @@ function App() {
         initialInvestment: 100,
         annualInvestment: 15,
         expectedReturn: 10,
-        duration: 1,
+        duration: 5,
     })
 
     function handleChange(identifier, newValue) {
         setUserInput(prevUserInput => {
             return {
                 ...prevUserInput,
-                [identifier]: Number(newValue),
+                [identifier]: Math.max(0, +newValue),
             }
         });
     }
