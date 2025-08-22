@@ -5,17 +5,17 @@ import { useState } from "react";
 
 function App() {
     const [userInput, setUserInput] = useState({
-        initialInvestment: 0,
-        annualInvestment: 0,
-        expectedReturn: 0,
-        duration: 0,
+        initialInvestment: 100,
+        annualInvestment: 15,
+        expectedReturn: 10,
+        duration: 1,
     })
 
     function handleChange(identifier, newValue) {
         setUserInput(prevUserInput => {
             return {
                 ...prevUserInput,
-                [identifier]: newValue,
+                [identifier]: Number(newValue),
             }
         });
     }
