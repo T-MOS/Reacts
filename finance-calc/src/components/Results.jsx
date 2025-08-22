@@ -3,7 +3,6 @@ import { calculateInvestmentResults, formatter } from "../util/investment"
 export default function Results({ inputs }) {
     const data = calculateInvestmentResults(inputs)
 
-
     return (
         <>
             <table id="result">
@@ -14,7 +13,6 @@ export default function Results({ inputs }) {
                         <th className="center">Interest (per annum)</th>
                         <th className="center">Total Interest</th>
                         <th className="center">Invested Capital</th>
-
                     </tr>
                 </thead>
                 <tbody>

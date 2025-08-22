@@ -20,6 +20,7 @@ function App() {
         });
     }
 
+    const inputIsValid = userInput.duration > 0;
     return (
         <>
             <Header />
@@ -27,7 +28,10 @@ function App() {
                 handleChange={handleChange}
                 userInput={userInput}
             />
-            <Results inputs={userInput}/>
+            {inputIsValid ?
+                <Results inputs={userInput}/>
+                : <p className="center">Enter a positive duration.</p> }
+
         </>
     )
 }
