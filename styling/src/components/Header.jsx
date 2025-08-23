@@ -3,7 +3,7 @@ import customClass from './Header.module.css';
 
 export default function Header() {
   return (
-    <header>
+    <header className={customClass.customHeader}>
       <img src={logo} alt="A canvas" />
       <h1>ReactArt</h1>
       <p className={customClass.para}>A community of artists and art-lovers.</p>

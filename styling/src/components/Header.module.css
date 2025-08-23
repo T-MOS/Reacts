@@ -1,5 +1,5 @@
 
-header {
+.customHeader {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,14 +8,14 @@ header {
   margin-bottom: 2rem;
 }
 
-header img {
+.customHeader img {
   object-fit: contain;
   margin-bottom: 2rem;
   width: 11rem;
   height: 11rem;
 }
 
-header h1 {
+.customHeader h1 {
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: 0.4em;
