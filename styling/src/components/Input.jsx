@@ -21,12 +21,10 @@ const Input = styled.input`
   `;
 
 export default function CustomInput({ label, invalid, ...props }) {
-    return (
-        <p>
-            <Label $invalid={invalid}>{label}</Label>
-            <Input $invalid={invalid} />
-        </p>
-    )
-}
-
-;
+  return (
+    <>
+      <Label $invalid={invalid}>{label}</Label>
+      <Input $invalid={invalid} />
+    </>
+  )
+};
